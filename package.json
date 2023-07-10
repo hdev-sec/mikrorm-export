@@ -1,0 +1,27 @@
+{
+  "name": "mikrorm-export",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "hdev-sec",
+  "license": "MIT",
+  "dependencies": {
+    "@mikro-orm/core": "^5.7.12",
+    "@mikro-orm/mysql": "^5.7.12",
+    "dotenv": "^16.3.1"
+  },
+  "mikro-orm": {
+    "configPaths": [
+      "./mikro-orm.config.js"
+    ]
+  },
+  "devDependencies": {
+    "@mikro-orm/cli": "^5.7.12"
+  }
+}
