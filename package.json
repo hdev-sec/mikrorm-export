@@ -2,13 +2,21 @@
   "name": "mikrorm-export",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "typings": "dist/index.d.ts",
   "directories": {
     "lib": "lib"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "initdb": "npx mikro-orm schema:fresh --run"
+    "initdb": "npx mikro-orm schema:fresh --run",
+    "build": "rm -rf ./dist && tsc --project tsconfig.json && tsc-alias -p tsconfig.json",
+    "start": "node dist/index.js",
+    "watch": "tsc --watch --preserveWatchOutput --pretty",
+    "dev": "ts-node-dev --respawn --transpile-only -r tsconfig-paths/register src/index.ts",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "createmigration": "npx mikro-orm migration:create --initial"
   },
   "author": "hdev-sec",
   "license": "MIT",
@@ -23,6 +31,9 @@
     ]
   },
   "devDependencies": {
-    "@mikro-orm/cli": "^5.7.12"
+    "@mikro-orm/cli": "^5.7.12",
+    "ts-node": "^10.9.1",
+    "tsc-alias": "^1.8.7",
+    "typescript": "^5.1.6"
   }
 }

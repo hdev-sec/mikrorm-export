@@ -1,7 +1,24 @@
-const EntitySchema = require('@mikro-orm/core').EntitySchema
+import { EntitySchema } from "@mikro-orm/core"
 
-const userSchema = new EntitySchema({
-  name: 'Users',
+export interface IUserSchema {
+  id: string
+  timeLogin: Date
+  timeLastOnline: Date
+  expirationTime: Date
+  timePwdUpdate: Date
+  email: string
+  orange: string
+  username: string
+  lange: string
+  adminNote: string
+  adminLang: string
+  oldSha1: number
+  active: boolean
+  changed: boolean
+}
+
+const userSchema = new EntitySchema<IUserSchema>({
+  name: 'User',
   tableName: 'glo_users',
   abstract: false,
   properties: {
@@ -24,4 +41,4 @@ const userSchema = new EntitySchema({
   },
 })
 
-exports.default = userSchema
+export default userSchema

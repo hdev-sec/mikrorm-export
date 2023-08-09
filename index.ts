@@ -1,7 +1,11 @@
-const path = require('path');
-const dotenv = require('dotenv');
-const librarySchemas = require('./lib/index').default;
-const MySqlDriver =  require('@mikro-orm/mysql').MySqlDriver;
+// const path = require('path');
+import path from 'path'
+import dotenv from 'dotenv'
+import libSchema from './lib/index'
+// const dotenv = require('dotenv');
+// const librarySchemas = require('./lib/index').default;
+import { MySqlDriver } from '@mikro-orm/mysql'
+// const MySqlDriver =  require('@mikro-orm/mysql').MySqlDriver;
 
 let envFile = './.env.testing';
 if (!!process.env.NODE_ENV) {
@@ -20,7 +24,7 @@ exports.default = {
   host: env.MYSQL_HOST || 'localhost',
   dbName: env.MYSQL_DB_NAME || 'test_users',
   password: env.MYSQL_PASS || 'mysqlroot',
-  entities: librarySchemas,
+  entities: libSchema,
   schemaGenerator: {
     disableForeignKeys: true,
   }
